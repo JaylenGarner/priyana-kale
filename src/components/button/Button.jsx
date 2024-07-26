@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
 
 const Button = () => {
-  return <div>Button</div>;
+  return (
+    <div>
+      <button className="button">Send</button>
+    </div>
+  );
 };
 
 export default Button;

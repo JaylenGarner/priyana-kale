@@ -2,6 +2,7 @@ import "./globals.css";
 import { inter, libreBaskerville } from "@/app/fonts";
 
 import Navigation from "@/components/navigation/Navigation";
+import Spacer from "@/components/spacer/Spacer";
 
 export const metadata = {
   title: "Priyana Kale",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${libreBaskerville.className} body`}>
         <Navigation />
+        <Spacer />
         {children}
       </body>
     </html>

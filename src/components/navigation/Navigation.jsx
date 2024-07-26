@@ -14,8 +14,10 @@ const Navigation = () => {
       initial="initial"
       animate="animate"
     >
-      <span className="text-3xl italic">P.K.</span>
-      <div className="space-x-6 ">
+      <Link href={"/"} className="text-4xl italic text-[#20603D]">
+        P.K.
+      </Link>
+      <div className="space-x-6 text-slate-900 text-lg">
         {pages.map((page) => {
           return (
             <Link href={`${page.link}`} key={page.name}>

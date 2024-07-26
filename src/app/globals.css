@@ -5,11 +5,33 @@
 /* General */
 
 .body {
-    @apply w-[50vw] mx-auto
+    @apply w-[50vw] mx-auto text-slate-600
 }
 
 /* Navigation */
 
 .navigation {
-    @apply flex justify-around items-center border-slate-300 border-b gap-40 h-24
+    @apply flex justify-around items-center text-slate-900 border-slate-300 border-b gap-40 h-24
+}
+
+/* Forms */
+
+.form_field {
+    @apply flex flex-col space-y-4
+}
+
+.input_field {
+    @apply p-2 border border-slate-300 rounded-md focus:outline-none focus:shadow-lg transition-shadow duration-300
+}
+
+.text_input {
+    @apply  input_field h-12
+}
+
+.text_area {
+    @apply input_field h-60 resize-none
+}
+
+.button {
+    @apply bg-[#20603D] w-32 h-14 text-slate-50 rounded-md hover:opacity-90 transition-all duration-300
 }
