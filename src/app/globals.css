@@ -33,5 +33,5 @@
 }
 
 .button {
-    @apply bg-[#20603D] w-32 h-14 text-slate-50 rounded-md hover:opacity-90 transition-all duration-300
+    @apply  bg-[#20603D] w-32 h-14 text-slate-50 rounded-md hover:opacity-90 transition-all duration-300
 }
