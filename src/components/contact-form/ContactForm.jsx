@@ -75,7 +75,7 @@ const ContactForm = () => {
             <label htmlFor="email">Email</label>
             <input
               className="text_input"
-              type="text"
+              type="email"
               id="email"
               name="email"
               required
