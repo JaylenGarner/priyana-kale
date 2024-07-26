@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General */
+
+.body {
+    @apply w-[50vw] mx-auto
+}
+
+/* Navigation */
+
+.navigation {
+    @apply flex justify-around items-center border-slate-300 border-b gap-40 h-24
+}
