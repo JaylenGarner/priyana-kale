@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../button/Button";
 import { motion } from "framer-motion";
 import { contactFormAnimationVariants } from "./helpers";
 import { successMessageAnimationVariants } from "./helpers";
+
+import axios from "axios";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -12,26 +14,40 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     setIsLoading(true);
 
-    // form logic
+    try {
+      const response = await axios.post("/api/email", {
+        submitter: name,
+        email,
+        message,
+      });
+    } catch (error) {
+      console.log("error");
+      setError(true);
+    }
+
     setSubmitted(true);
     setIsLoading(false);
   };
 
   return (
     <>
-      {submitted ? (
+      {submitted || error ? (
         <motion.p
           className="text-xl"
           variants={successMessageAnimationVariants}
           initial="initial"
           animate="animate"
         >
-          Your message has been recieved, I will be in touch with you shortly.
+          {submitted && !error
+            ? "Your message has been recieved, I will be in touch with you shortly."
+            : "There was an error, please try again later. "}
         </motion.p>
       ) : (
         <motion.form
@@ -43,7 +59,7 @@ const ContactForm = () => {
           viewport={{ once: true }}
         >
           <div className="form_field">
-            <label for="name">Name</label>
+            <label htmlFor="name">Name</label>
             <input
               className="text_input"
               type="text"
@@ -56,7 +72,7 @@ const ContactForm = () => {
             />
           </div>
           <div className="form_field">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               className="text_input"
               type="text"
@@ -69,7 +85,7 @@ const ContactForm = () => {
             />
           </div>
           <div className="form_field ">
-            <label for="message">Message</label>
+            <label htmlFor="message">Message</label>
             <textarea
               className="text_area"
               type="textarea"
