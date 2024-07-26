@@ -8,6 +8,10 @@
     @apply w-[50vw] mx-auto text-slate-600
 }
 
+.link_hover {
+    @apply hover:opacity-60 transition-all duration-300
+}
+
 /* Navigation */
 
 .navigation {
