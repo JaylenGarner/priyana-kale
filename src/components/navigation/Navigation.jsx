@@ -15,7 +15,7 @@ const Navigation = () => {
       initial="initial"
       animate="animate"
     >
-      <Link href={"/"} className="text-4xl italic text-[#20603D] link_hover">
+      <Link href={"/"} className="initials">
         P.K.
       </Link>
       <div className="space-x-6 text-slate-900 text-lg">

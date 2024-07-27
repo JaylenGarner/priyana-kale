@@ -8,7 +8,7 @@ const Hero = ({ firstWord, secondWord }) => {
   return (
     <div className="flex flex-col leading-tight ">
       <motion.span
-        className="text-[200px] text-slate-900"
+        className="hero_text text-slate-900"
         variants={heroAnimationVariants}
         initial="initialLeft"
         animate="animateLeft"
@@ -16,7 +16,7 @@ const Hero = ({ firstWord, secondWord }) => {
         {firstWord}
       </motion.span>
       <motion.span
-        className="text-[200px] text-right text-[#20603D]"
+        className="hero_text text-right text-[#20603D]"
         variants={heroAnimationVariants}
         initial="initialRight"
         animate="animateRight"

@@ -23,7 +23,7 @@ const CarousellCard = ({ cardObj }) => {
       {cardObj.images.map((image) => {
         return (
           <SwiperSlide>
-            <img src={image.URL} alt={image.alt} />
+            <img src={image.URL} alt={image.alt} className="card" />
             <div className="pt-10"></div>
           </SwiperSlide>
         );

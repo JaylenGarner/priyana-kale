@@ -22,7 +22,7 @@ const ContactForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/email", {
+      await axios.post("/api/email", {
         submitter: name,
         email,
         message,
@@ -52,7 +52,7 @@ const ContactForm = () => {
       ) : (
         <motion.form
           onSubmit={handleSubmit}
-          className="flex flex-col space-y-8 "
+          className="flex flex-col space-y-8"
           variants={contactFormAnimationVariants}
           initial="initial"
           whileInView="animate"

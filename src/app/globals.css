@@ -5,7 +5,7 @@
 /* General */
 
 .body {
-    @apply w-[50vw] mx-auto text-slate-600
+    @apply 2xl:w-[50vw]  max-2xl:w-[75vw]  max-sm:w-[90vw] mx-auto text-slate-600
 }
 
 .link_hover {
@@ -15,7 +15,25 @@
 /* Navigation */
 
 .navigation {
-    @apply flex justify-around items-center text-slate-900 border-slate-400 border-b gap-40 h-24
+    @apply flex justify-around items-center text-slate-900 border-slate-400 border-b gap-40 max-lg:gap-0 h-24
+}
+
+.initials {
+    @apply text-3xl max-lg:text-2xl italic text-[#20603D] link_hover max-sm:hidden
+}
+
+/* Hero */
+
+.hero_text {
+    @apply text-[200px] max-lg:text-[120px]  max-sm:text-[80px]
+}
+
+/* Gallery */
+
+/* Cards */
+
+.card {
+    @apply rounded-md border border-slate-300 shadow-xl
 }
 
 /* Forms */
