@@ -33,7 +33,7 @@
 /* Cards */
 
 .card {
-    @apply rounded-md border border-slate-300 shadow-xl
+    @apply rounded-md border border-slate-300
 }
 
 /* Forms */
