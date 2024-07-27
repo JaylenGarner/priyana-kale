@@ -15,7 +15,7 @@
 /* Navigation */
 
 .navigation {
-    @apply flex justify-around items-center text-slate-900 border-slate-300 border-b gap-40 h-24
+    @apply flex justify-around items-center text-slate-900 border-slate-400 border-b gap-40 h-24
 }
 
 /* Forms */

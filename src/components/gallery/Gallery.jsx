@@ -1,41 +1,59 @@
 "use client";
 
+import { shuffleArray, galleryAnimationVariants, cardData } from "./helpers";
+import { useState, useEffect } from "react";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Measure from "react-measure";
+import Card from "../cards/Card";
+import CarousellCard from "../cards/CarousellCard";
 import { motion } from "framer-motion";
-import { galleryAnimationVariants } from "./helpers";
-
-import { imageUrls } from "./helpers";
-
-const columns = 3;
-const imagesPerColumn = Math.ceil(imageUrls.length / columns);
 
 const Gallery = () => {
-  // Split the imageUrls into columns
-  const organizedImages = Array.from({ length: columns }, (_, columnIndex) =>
-    imageUrls.slice(
-      columnIndex * imagesPerColumn,
-      (columnIndex + 1) * imagesPerColumn
-    )
-  );
+  const [isClient, setIsClient] = useState(false);
+  const [shuffledData, setShuffledData] = useState([]);
+
+  useEffect(() => {
+    setIsClient(true);
+    setShuffledData(shuffleArray([...cardData]));
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {organizedImages.map((group, index) => (
-        <div key={index} className="grid gap-4">
-          {group.map((src, imgIndex) => (
-            <motion.img
-              key={imgIndex}
-              variants={galleryAnimationVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              className="h-auto max-w-full rounded-lg"
-              src={src}
-              alt={`Image ${index * imagesPerColumn + imgIndex + 1}`}
-            />
-          ))}
-        </div>
-      ))}
-    </div>
+    <motion.div
+      variants={galleryAnimationVariants}
+      initial="feedInitial"
+      whileInView="feedAnimate"
+      viewport={{ once: true }}
+    >
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+        <Masonry columnsCount={3} gutter="16px">
+          {shuffledData.map((cardObj, index) => {
+            return (
+              <Measure key={index}>
+                {({ measureRef }) => (
+                  <motion.div
+                    ref={measureRef}
+                    variants={galleryAnimationVariants}
+                    initial="cardInitial"
+                    whileInView="cardAnimate"
+                    viewport={{ once: true }}
+                  >
+                    {cardObj.carousell ? (
+                      <CarousellCard cardObj={cardObj} />
+                    ) : (
+                      <Card cardObj={cardObj} />
+                    )}
+                  </motion.div>
+                )}
+              </Measure>
+            );
+          })}
+        </Masonry>
+      </ResponsiveMasonry>
+    </motion.div>
   );
 };
 
