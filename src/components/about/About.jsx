@@ -13,13 +13,15 @@ const About = () => {
       viewport={{ once: true }}
     >
       <p className="text-xl">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        As a passionate marketing professional with expertise in SEO, digital
+        marketing, and content creation, I thrive on crafting strategies that
+        elevate brand visibility and engage audiences. With a blend of creative
+        storytelling and data-driven insights, I deliver impactful campaigns
+        that resonate. I'm committed to continuous learning and staying ahead of
+        industry trends, bringing fresh perspectives to every project. Outside
+        of work, I enjoy traveling and exploring new cultures, which inspires my
+        innovative approach to marketing. Let's connect and achieve your
+        marketing goals together!
       </p>
     </motion.div>
   );
